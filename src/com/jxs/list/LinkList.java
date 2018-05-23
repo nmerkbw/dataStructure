@@ -71,12 +71,31 @@ public class LinkList<T> {
     // 在指定的地方插入节点
     public void insert(int index, T element) {
 
+        if (index < 0 && index >= size) {
+            throw new IndexOutOfBoundsException("要插入的位置超过线性表的边界！");
+        }
         Node prev = getNodeByIndex(index - 1);
         Node next = getNodeByIndex(index);
         Node node = new Node(element, null);
         node.next = next;
         prev.next = node;
         size++;
+    }
+
+    // 删除指定位置上的节点
+    public void delete(int index) {
+
+        if (index < 0 && index >= size) {
+            throw new IndexOutOfBoundsException("要删除的节点位置超过了线性表的边界！");
+        }
+        Node next = getNodeByIndex(index + 1);
+        if (index == 0) {
+            header.next = next;
+        } else {
+            Node prev = getNodeByIndex(index - 1);
+            prev.next = next;
+        }
+        size--;
     }
 
     public String toString(){
@@ -99,8 +118,9 @@ public class LinkList<T> {
         ll.add("sss");
         ll.addHeader("jjj");
         ll.addHeader("hahaha");
-        //ll.insert(2,"wrq");
+        ll.delete(0);
+        ll.insert(2,"wrq");
         System.out.println(ll);
-        System.out.println(ll.getNodeByIndex(2).elementData);
+        System.out.println(ll.getNodeByIndex(0).elementData);
     }
 }
