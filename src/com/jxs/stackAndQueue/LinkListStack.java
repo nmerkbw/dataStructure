@@ -48,6 +48,7 @@ public class LinkListStack<T> {
         return node;
     }
 
+    @Override
     public String toString() {
 
         if (top == null) {
