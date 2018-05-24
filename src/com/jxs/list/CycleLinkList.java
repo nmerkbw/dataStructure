@@ -87,12 +87,9 @@ public class CycleLinkList<T> {
     // 删除指定位置的节点
     public void delete(int index) {
 
+        Node node = header;
         if (index < 0 && index >= size) {
             throw new IndexOutOfBoundsException("删除的位置超出链表范围！");
-        }
-        Node node = header;
-        if (index == 0) {
-            header.next = header.next.next;
         } else {
             for (int i = 0; i < size; i++) {
                 node = node.next;
@@ -130,6 +127,6 @@ public class CycleLinkList<T> {
         cl.insert(2,"wrq");
         //cl.delete(0);
         System.out.println(cl);
-        System.out.println(cl.getNodeByIndex(4).next.next.elementData);
+        System.out.println(cl.getNodeByIndex(0).elementData);
     }
 }
