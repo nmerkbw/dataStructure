@@ -98,6 +98,7 @@ public class LinkList<T> {
         size--;
     }
 
+    @Override
     public String toString(){
         if (size == 0) {
             return "[]";
