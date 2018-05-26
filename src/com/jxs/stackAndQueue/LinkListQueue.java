@@ -4,6 +4,7 @@ package com.jxs.stackAndQueue;
  * Created by jiangxs on 2018/5/26.
  *
  * 队列的链式结构
+ *
  */
 public class LinkListQueue<T> {
 
