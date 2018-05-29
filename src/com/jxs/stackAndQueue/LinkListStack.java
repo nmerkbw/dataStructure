@@ -26,6 +26,15 @@ public class LinkListStack<T> {
         size = 0;
     }
 
+    // 判断栈是否为空
+    public boolean isEmpty() {
+
+        if (size == 0) {
+            return true;
+        }
+        return false;
+    }
+
     // 进栈操作
     public void push(T element) {
 
@@ -35,17 +44,26 @@ public class LinkListStack<T> {
     }
 
     // 出栈操作
-    public Node pop() {
+    public T pop() {
 
         Node node;
         if (size < 0) {
             throw new IndexOutOfBoundsException("栈为空，无法进行弹出！");
         } else {
-            node = top.next;
-            top = node;
+            node = top;
+            top = top.next;
+            node.next = null;
             size--;
         }
-        return node;
+        return node.element;
+    }
+
+    public T peek() {
+
+        if (size < 0) {
+            return null;
+        }
+        return top.element;
     }
 
     @Override
